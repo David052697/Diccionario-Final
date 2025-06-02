@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+
+
+
+
+    
+    <style>
+
+        /* ESTILOS ACORDEON PREGUNTAS FRECUENTES */
+         h1 {
+            text-align: center;
+            color: #FFD700;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .accordion {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 1000px; /* Ancho ajustado a 1000px */
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #444;
+        }
+
+        .accordion-header {
+            background-color: #333;
+            padding: 15px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 18px;
+            color: #ddd;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #555;
+        }
+
+        .accordion-body {
+            padding: 15px;
+            display: none;
+            background-color: #444;
+            font-size: 16px;
+            color: #f1f1f1;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .accordion-body p {
+            margin: 0;
+        }
+
+        .accordion-item.active .accordion-body {
+            display: block;
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: #FFD700;
+            color: #121212;
+        }
+
+        .accordion-body.active {
+            display: block; /* Mostrar cuando está activo */
+        }
+
+        
+        body {
+            background-color: #222;
+            color: #ddd;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .historia-tienda {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #1c1c1c;
+            border: 2px solid #444;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            color: #f0f0f0;
+            line-height: 1.8;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .historia-tienda h1 {
+            font-size: 36px;
+            color: #f2ff00;  /* Neon green */
+            text-align: center;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(208, 255, 0, 0.965), 0 0 25px #ddff00f4;
+        }
+
+        .historia-tienda p {
+            font-size: 18px;
+            color: #ccc;
+            text-align: justify;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .historia-tienda p:hover {
+            color: #00FF7F;
+        }
+
+        .historia-tienda::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid #444;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #00FF7F, #FF007F, #007FFF, #FF7F00);
+            background-size: 400% 400%;
+            animation: gradientMotion 5s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientMotion {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .historia-tienda p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* CAROUSEL GRANDE 3 IMAGENES MOVIEMINTO */
+        .carousel {
+        position: relative;
+        width: 1000px; /* Ancho fijo */
+        margin: auto;
+        overflow: hidden;
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        }
+
+        /* Carrusel interior */
+        .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        }
+
+        /* Elementos del carrusel */
+        .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+        }
+
+        /* Imagen del carrusel */
+        .carousel-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        }
+
+        /* Botones de control */
+        .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 1;
+        border-radius: 50%;
+        }
+
+        .carousel-control-prev {
+        left: 10px;
+        }
+
+        .carousel-control-next {
+        right: 10px;
+        }
+
+        /* ESTILOS PARA EL CONTENEDOR PRINCIPAL INICAR SESION REGISTRARSE */
+        .container {
+            text-align: center;
+            padding: 50px;
+            background-image: url('https://img.freepik.com/foto-gratis/textura-abstracta-brillo-negro_1048-8015.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: auto;
+            color: white;
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .welcome-text {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+
+
+        /* ESTILOS PARA PRODUCTOS  */
+        .featured-products {
+            margin-top: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 1em;
+            color: #777;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* ESTILOS ARA EL NAV BARRA DE NAVEGACION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #111;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #444;
+            z-index: 1000; /* Asegura que esté por encima del contenido */
+        }
+
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            color: #ffbb00; /* Color dorado */
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar-toggler {
+            font-size: 1.5em;
+            background: none;
+            color: #ffbb00;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffbb00;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #ff9000;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            background: #222;
+            border: 1px solid #444;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            list-style: none;
+            margin: 0;
+            padding: 5px 0;
+        }
+
+        .dropdown-item {
+            padding: 8px 15px;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-item:hover {
+            background-color: #333;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-input {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            padding: 5px 10px;
+            background-color: #ffbb00;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #ff9000;
+        }
+
+        /* ESTILOS PARA EL FOOTER  */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #444;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Compensar el espacio ocupado por el navbar superior */
+        .content {
+            padding-top: 60px; /* Altura del navbar */
+            padding-bottom: 50px; /* Altura del footer */
+        }
+
+
+        .Botoncerrar {
+            background-color: #ffbb00; /* Amarillo */
+            color: black;
+            padding: 8px 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    </style>
+
+
+</head>
+<body>
+     <nav class="navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="#carousel-section">Diccionario Educativo Escolar</a>
+            <button class="navbar-toggler" id="navbar-toggler">☰</button>
+            <div class="navbar-menu" id="navbar-menu">
+                <ul class="navbar-nav">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#carousel1">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carouselExample">Educación</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#carrusel">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#carrusel1" aria-disabled="true">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+    <div id="carousel1" class="container">
+        <h1 class="page-title">Diccionario Educativo Escolar</h1>
+        <div class="login-button-container">
+            <li><a href="registro.html" style="font-weight:bold; font-size:14px; padding:10px 20px; background-color:#FFD700; color:#121212; border:2px solid #FFD700; border-radius:5px; text-decoration:none; transition:all 0.3s ease; display:inline-block; margin-bottom:40px;" onmouseover="this.style.backgroundColor='#ffcc00'; this.style.borderColor='#ffcc00';"  onmouseout="this.style.backgroundColor='#FFD700'; this.style.borderColor='#FFD700';">Registrarse</a></li>
+            <li><a href="login.html" style="font-weight:bold; font-size:14px; padding:10px 20px; background-color:#FFD700; color:#121212; border:2px solid #FFD700; border-radius:5px; text-decoration:none; transition:all 0.3s ease; display:inline-block; margin-bottom:40px;"onmouseover="this.style.backgroundColor='#ffcc00'; this.style.borderColor='#ffcc00';" onmouseout="this.style.backgroundColor='#FFD700'; this.style.borderColor='#FFD700';">Iniciar Sesión</a></li>
+        </div>
+            
+        <div class="featured-products">
+            <h2>Términos destacados</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://elucabista.com/wp-content/uploads/2017/02/educacion.jpg" alt="Definición: Currículo" class="product-image">
+                    <h3>Currículo</h3>
+                    <p>Conjunto de objetivos, contenidos, métodos y evaluaciones que guían el proceso educativo.</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://colombia.unir.net/wp-content/uploads/sites/4/2025/01/Que-tipos-de-pedagogias-o-especialidades-existen-en-educacion1.jpg" alt="Definición: Pedagogía" class="product-image">
+                    <h3>Pedagogía</h3>
+                    <p>Ciencia y arte de la educación y la enseñanza.</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://cursosmultimedia.es/wp-content/uploads/2021/03/evaluacion-3.png" alt="Definición: Evaluación" class="product-image">
+                    <h3>Evaluación</h3>
+                    <p>Proceso para valorar el aprendizaje y desempeño del estudiante.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+    <br><br>
+
+    <div id="carouselExample" class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.ei-ie.org/image/8f094.png/lead.jpg" alt="Slide 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i0.wp.com/webdelmaestro.com/wp-content/uploads/2016/03/Imagenes-educativas-1.jpg" alt="Slide 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://cme-espana.org/wp-content/uploads/2019/08/cartoon_cover-sp.jpg" alt="Slide 3">
+          </div>
+        </div>
+        <button class="carousel-control carousel-control-prev" onclick="prevSlide()">❮</button>
+        <button class="carousel-control carousel-control-next" onclick="nextSlide()">❯</button>
+    </div>
+
+    <br><br>
+
+    <div id="carrusel" class="historia-tienda">
+        <h1>La Revolución del Conocimiento Escolar</h1>
+        <p>
+            En 2025, nació una idea que cambiaría para siempre la manera en que estudiantes, profesores y familias acceden al conocimiento: el <strong>Diccionario Educativo</strong>. Más que un simple listado de palabras, esta plataforma es un espacio vivo, diseñado para acercar conceptos complejos con claridad, facilitar el aprendizaje y fomentar el crecimiento intelectual en todo el entorno escolar.
+        </p>
+        <p>
+            Nuestra plataforma está diseñada pensando en dos protagonistas esenciales: el <strong>Administrador</strong>, un curador apasionado que enriquece el diccionario agregando y actualizando palabras, garantizando que el contenido sea siempre relevante, preciso y adaptado a las necesidades actuales; y el <strong>Usuario</strong>, que navega con facilidad, encuentra definiciones claras y fiables, y transforma su experiencia educativa con un recurso accesible en cualquier momento y lugar.
+        </p>
+        <p>
+            Imagina una herramienta donde el aprendizaje no tiene límites, donde cada término es una puerta abierta al conocimiento, y donde la colaboración entre quienes enseñan y quienes aprenden se traduce en éxito escolar y personal. Eso es nuestro compromiso con la comunidad educativa: crear un ecosistema digital que empodere a cada usuario, impulse la curiosidad y convierta la educación en una aventura apasionante.
+        </p>
+        <p>
+            Únete a la revolución del conocimiento y forma parte de una comunidad que no solo consulta, sino que también construye y enriquece el saber. El <strong>Diccionario Educativo</strong> no es solo una plataforma, es el futuro del aprendizaje colaborativo.
+        </p>
+    </div>
+        
+        
+        
+    <br><br>
+
+    <div id="carrusel1" class="accordion">
+        <h1 class="titulos-preguntas">Preguntas Frecuentes - Diccionario Educativo</h1>
+        
+        <div class="accordion-item">
+            <div class="accordion-header">¿Qué es el Diccionario Educativo?</div>
+            <div class="accordion-body">
+                <p>El Diccionario Educativo es una plataforma interactiva en línea diseñada para que estudiantes, profesores y familias puedan consultar de manera sencilla y clara los términos y conceptos esenciales del entorno escolar. Mucho más que un diccionario tradicional, es una herramienta dinámica y viva para el aprendizaje.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">¿Cómo puedo participar en el Diccionario Educativo?</div>
+            <div class="accordion-body">
+                <p>Existen dos formas principales de participación: como <strong>Administrador</strong>, podrás agregar y actualizar palabras y definiciones para que siempre estén al día; y como <strong>Usuario</strong>, tendrás acceso a un recurso confiable para tus consultas, fortaleciendo tu aprendizaje con cada término nuevo.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">¿Cuáles son los beneficios de utilizar el Diccionario Educativo?</div>
+            <div class="accordion-body">
+                <p>El Diccionario Educativo facilita el acceso rápido a definiciones precisas, promueve la comprensión y el uso correcto del vocabulario escolar, y fortalece el aprendizaje autónomo. Además, fomenta la participación activa de los usuarios y permite que el conocimiento evolucione de forma colaborativa.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">¿Qué tipo de términos y conceptos incluye el Diccionario Educativo?</div>
+            <div class="accordion-body">
+                <p>Incluye definiciones de términos académicos, pedagógicos, científicos, culturales y tecnológicos adaptados a los niveles escolares, con explicaciones claras y ejemplos prácticos. Además, se actualiza regularmente con nuevos conceptos para mantenerse relevante y útil.</p>
+            </div>
+        </div>
+    </div>
+        
+
+    <br><br>
+    <br><br>
+    <br><br>
+    
+    <footer>
+            <p>&copy; Diccionario Educativo 2025</p>
+    </footer>
+
+    <script>
+        function prevSlide() {
+            // Lógica para retroceder el carrusel
+        }
+        function nextSlide() {
+            // Lógica para avanzar el carrusel
+        }
+
+    // Selecciona todos los encabezados del acordeón
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            // Alterna el contenido del body asociado
+            const body = header.nextElementSibling;
+            body.classList.toggle('active');
+
+            // (Opcional) Cierra otros elementos abiertos
+            headers.forEach(otherHeader => {
+                if (otherHeader !== header) {
+                    otherHeader.nextElementSibling.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        carouselInner.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+    }
+
+    // Autoavance cada 3 segundos
+    setInterval(() => {
+        nextSlide();
+    }, 3000);
+    </script>
+
+</body>
+</html>
+
+
